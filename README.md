@@ -2,8 +2,8 @@
 
 - [React]
 - [TypeScript] - more strict
-- [React Router](https://reactrouter.com/) - with lazy-loading / code-splitting use case
-- [Redux Toolkit](https://redux-toolkit.js.org/) - with async and sync use case
+- [React Router]
+- [Redux Toolkit]
 - [ESLint]
 - [Prettier]
 - [PrimeReact]
