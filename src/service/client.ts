@@ -25,13 +25,13 @@ export default {
   makeRequest: async <T>(parameters: IRequestConfig, endpoint: string): Promise<T> => {
     return new Promise((resolve, reject) => {
       const { method, params = {} } = parameters;
-      const { REACT_APP_API_KEY } = process.env;
+      const { VITE_API_KEY } = import.meta.env;
 
       const queryParams = getParams(params);
 
       const config: AxiosRequestConfig = {
         method,
-        url: `${endpoint}?api_key=${REACT_APP_API_KEY}${queryParams}`,
+        url: `${endpoint}?apikey=${VITE_API_KEY}${queryParams}`,
       };
 
       axiosInstance(config)

@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({ baseURL: `https://api.themoviedb.org/3/` });
+const axiosInstance = axios.create({ baseURL: `http://www.omdbapi.com/` });
 
 export default axiosInstance;

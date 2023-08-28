@@ -1,0 +1,39 @@
+.filters {
+    border-bottom: 1px solid #067a83;
+    padding-bottom: 14px;
+    display: flex;
+
+    & div:last-child {
+        margin-left: auto;
+    }
+    &__dropdown {
+        flex-basis: 130px;
+        .p-dropdown {
+            background: inherit;
+            border: none;
+        }
+    }
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+
+    .p-inputtext {
+        background: inherit;
+        border: none;
+
+        &:enabled:focus {
+            box-shadow: none;
+        }
+    }
+
+    i {
+        color: white;
+    }
+}
+
+.p-dropdown-panel {
+    background-color: #13161f !important;
+    border: 1px solid #067a83 !important;
+}

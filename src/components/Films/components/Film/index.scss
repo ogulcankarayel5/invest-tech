@@ -1,0 +1,30 @@
+.film {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    cursor: pointer;
+    &__img {
+        max-width: 300px;
+        max-height: 447px;
+    }
+    &__title {
+        font-size: 1.25rem;
+        margin-top: 8px;
+        color: #067a83;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+    }
+
+    &__footer {
+        display: flex;
+        margin-top: 6px;
+        gap: 8px;
+        span {
+            color: white;
+            font-size: 0.85rem;
+        }
+    }
+}

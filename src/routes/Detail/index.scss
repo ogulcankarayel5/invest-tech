@@ -1,0 +1,53 @@
+.detail {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        color: white;
+    }
+
+    .info {
+        display: flex;
+        gap: 24px;
+
+        &__text {
+            display: flex;
+            gap: 8px;
+            font-size: 1.25rem;
+        }
+
+        &__texts-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        &__texts {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            gap: 14px;
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-size: 1.5rem;
+        margin-top: 40px;
+    }
+
+    .footer {
+        &__rating {
+            display: flex;
+            align-items: center;
+            color: white;
+            gap: 12px;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.layout {
+    background-color: #13161f;
+    min-height: 100%;
+    padding: 100px 60px 60px 40px;
+
+    @media screen and (max-width: 768px) {
+        padding: 10px;
+    }
+}
