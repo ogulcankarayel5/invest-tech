@@ -2,8 +2,8 @@ import { AxiosRequestConfig } from 'axios';
 import axiosInstance from './api';
 
 interface IRequestConfig {
-  params?: IObject;
-  body?: IObject;
+  params?: object;
+  body?: object;
   method: 'POST' | 'GET' | 'PUT' | 'DELETE';
 }
 

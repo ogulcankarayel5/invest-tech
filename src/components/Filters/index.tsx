@@ -10,6 +10,7 @@ import useDidMountEffect from '../../hooks/useDidMountEffect';
 
 import { getFilms, updateCategory, updateDate, updateSearch } from '../../store/slices/film.slice';
 import { useAppSelector } from '../../store/hooks';
+import type { AppDispatch } from '../../store';
 
 type FilterItemProps = {
   children: React.ReactNode;
@@ -31,19 +32,19 @@ const categories = [
 ];
 
 const Filters = () => {
-  const appState = useAppSelector((state) => state.films);
+  const appState: any = useAppSelector((state) => state.films);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useDidMountEffect(() => {
-    dispatch(getFilms());
+    dispatch(getFilms({}));
   }, [appState.selectedCategory, appState.date, dispatch]);
 
   const onSearch = () => {
-    dispatch(getFilms());
+    dispatch(getFilms({}));
   };
 
-  const onKeydown = (e) => {
+  const onKeydown = (e: any) => {
     if (e.key === 'Enter') {
       onSearch();
     }

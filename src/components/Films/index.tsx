@@ -7,17 +7,19 @@ import ReactLoading from 'react-loading';
 
 import './index.scss';
 import { useAppSelector } from '../../store/hooks';
+import type { AppDispatch } from '../../store';
 import useDidMountEffect from '../../hooks/useDidMountEffect';
 import { getFilms } from '../../store/slices/film.slice';
 import Film from './components/Film';
 
 const Films = () => {
   const navigate = useNavigate();
-  const appState = useAppSelector((state) => state.films);
+  const appState: any = useAppSelector((state) => state.films);
   const [loadMore, setLoadMore] = useState(true);
   const [page, setPage] = useState(1);
-  const dispatch = useDispatch();
-  const onFilmClick = (id) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const onFilmClick = (id: string) => {
     navigate(`/detail/${id}`);
   };
 
@@ -52,7 +54,7 @@ const Films = () => {
         {appState.films?.Search.length > 0 ? (
           <>
             <div className="films__container">
-              {appState.films?.Search.map((film) => (
+              {appState.films?.Search.map((film: any) => (
                 <div
                   key={film.imdbID}
                   onClick={() => onFilmClick(film.imdbID)}
@@ -80,6 +82,8 @@ const Films = () => {
       </div>
     );
   }
+
+  return <div />;
 };
 
 export default Films;

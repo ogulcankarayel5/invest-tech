@@ -8,6 +8,7 @@ export interface FilmState {
   films: [];
   selectedCategory: Object | null;
   date: string | null;
+  search: string;
 }
 
 const initialState: FilmState = {
@@ -22,7 +23,7 @@ const initialState: FilmState = {
 export const getFilms = createAsyncThunk(
   'films/getFilms',
   async (params: any, { rejectWithValue, getState }) => {
-    const state = getState().films;
+    const state = (getState() as any).films;
     try {
       const response: any = await filmService.getFilms({
         ...(state.selectedCategory && {
@@ -66,14 +67,14 @@ export const filmSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getFilms.pending, (state, { meta }) => {
+      .addCase(getFilms.pending, (state: any, { meta }) => {
         if (meta?.arg?.page) {
           state.loadMoreStatus = 'loading';
           return;
         }
         state.status = 'loading';
       })
-      .addCase(getFilms.fulfilled, (state, action) => {
+      .addCase(getFilms.fulfilled, (state: any, action) => {
         if (action?.payload?.page && action.payload?.Search) {
           state.films.Search = [...state.films.Search, ...action.payload.Search];
           state.loadMoreStatus = 'succeeded';
@@ -85,7 +86,7 @@ export const filmSlice = createSlice({
           state.films = action?.payload;
         }
       })
-      .addCase(getFilms.rejected, (state, { meta }) => {
+      .addCase(getFilms.rejected, (state: any, { meta }) => {
         if (meta?.arg?.page) {
           state.loadMoreStatus = 'failed';
           return;
