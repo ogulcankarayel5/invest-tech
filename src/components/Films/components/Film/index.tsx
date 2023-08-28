@@ -15,7 +15,7 @@ const Film = ({ img, title, footerTexts }: FilmProps) => {
       <span className="film__title">{title}</span>
       <div className="film__footer">
         {footerTexts.map((text) => (
-          <span>{text}</span>
+          <span key={text}>{text}</span>
         ))}
       </div>
     </div>

@@ -49,6 +49,7 @@ const Filters = () => {
       onSearch();
     }
   };
+
   return (
     <div className="filters">
       <FilterItem className="filters__dropdown">
@@ -63,8 +64,8 @@ const Filters = () => {
       <FilterItem className="filters__calendar">
         <Calendar
           id="yearpicker"
-          value={appState.date}
-          onChange={(e) => dispatch(updateDate(e.value))}
+          value={new Date(appState.date)}
+          onChange={(e) => dispatch(updateDate(new Date(e.value as any).toString()))}
           view="year"
           dateFormat="yy"
           placeholder="Release Date"

@@ -30,7 +30,7 @@ export const getFilms = createAsyncThunk(
           type: state.selectedCategory.code,
         }),
         ...(state.date && {
-          y: state.date,
+          y: new Date(state.date).getFullYear(),
         }),
         ...(state.search && {
           s: state.search,
